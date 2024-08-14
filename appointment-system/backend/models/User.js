@@ -6,4 +6,6 @@ const User = sequelize.define('User', {
     password: { type: DataTypes.STRING, allowNull: false },
     role: { type: DataTypes.STRING, allowNull: false }, // 'admin' or 'user'
   });
+
+  module.exports = User;
   
