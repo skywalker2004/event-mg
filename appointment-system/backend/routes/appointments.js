@@ -20,3 +20,15 @@ router.get('/', authenticate, async (req, res) => {
     const appointments = await Appointment.findAll({ where: { userId: req.user.id } });
     res.json(appointments);
   });
+
+  // Delete an appointment
+router.delete('/:id', authenticate, async (req, res) => {
+    const { id } = req.params;
+    try {
+      const appointment = await Appointment.destroy({ where: { id, userId: req.user.id } });
+      if (appointment) res.json({ message: 'Appointment deleted' });
+      else res.status(404).json({ error: 'Appointment not found' });
+    } catch (error) {
+      res.status(400).json({ error: 'Failed to delete appointment' });
+    }
+  });
