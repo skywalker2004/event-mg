@@ -13,6 +13,11 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+
 const sequelize = require('./config/config');
 const User = require('./models/User');
 const Appointment = require('./models/Appointment');
+
+sequelize.sync({ force: false }).then(() => {
+    console.log('Database & tables created!');
+  });
