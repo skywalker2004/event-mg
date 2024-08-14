@@ -14,3 +14,9 @@ router.post('/', authenticate, async (req, res) => {
       res.status(400).json({ error: 'Failed to create appointment' });
     }
   });
+
+  // View all appointments
+router.get('/', authenticate, async (req, res) => {
+    const appointments = await Appointment.findAll({ where: { userId: req.user.id } });
+    res.json(appointments);
+  });
