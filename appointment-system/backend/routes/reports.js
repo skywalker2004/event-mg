@@ -20,3 +20,5 @@ router.get('/income', authenticate, async (req, res) => {
   
     res.json({ month, year, totalIncome });
   });
+
+  module.exports = router;
