@@ -6,3 +6,5 @@ const Appointment = sequelize.define('Appointment', {
     date: { type: DataTypes.DATE, allowNull: false },
     amount: { type: DataTypes.DECIMAL, allowNull: false },
   });
+
+  module.exports = Appointment;
