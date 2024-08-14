@@ -14,3 +14,5 @@ app.listen(PORT, () => {
 });
 
 const sequelize = require('./config/config');
+const User = require('./models/User');
+const Appointment = require('./models/Appointment');
