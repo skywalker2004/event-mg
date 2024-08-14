@@ -32,3 +32,5 @@ router.delete('/:id', authenticate, async (req, res) => {
       res.status(400).json({ error: 'Failed to delete appointment' });
     }
   });
+
+  module.exports = router;
